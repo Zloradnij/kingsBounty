@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}World{% endblock %}
+
+{% block body %}
+    <h1>My World</h1>
+
+    <div class="container">
+        <div
+                id="island-map"
+                data-map="{{ worldMapJson }}"
+                data-map_objects="{{ mapObjects }}"
+                data-hero="{{ hero }}"
+        >
+{#            {% for keyX, valueX in worldMap %}#}
+{#                {% for keyY, valueY in valueX %}#}
+{#                    {{ valueY }},#}
+{#                {% endfor %}#}
+{#                <br />#}
+{#            {% endfor %}#}
+        </div>
+        <canvas id="kingsBounty"> </canvas>
+        <canvas id="kingsBountyMap"> </canvas>
+    </div>
+
+    <div id="preloader" class="hidden">
+        <img src="/images/objects/Hero.png" />
+        <img src="/images/objects/Ship.png" />
+        <img src="/images/objects/Plain.png" />
+        <img src="/images/objects/Water.png" />
+        <img src="/images/objects/Forest.png" />
+        <img src="/images/objects/Mountains.png" />
+        <img src="/images/objects/Desert.png" />
+        <img src="/images/objects/Desert.png" />
+        <img src="/images/objects/City.png" />
+        <img src="/images/objects/Rock.png" />
+        <img src="/images/objects/Castle.png" />
+        <img src="/images/objects/Knight.png" />
+    </div>
+    <pre>
+    {{ dump(o3) }}
+    </pre>
+{% endblock %}

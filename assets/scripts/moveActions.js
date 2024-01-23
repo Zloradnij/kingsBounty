@@ -14,8 +14,8 @@ let positionMove = function(deltaX, deltaY) {
     let positionX = parseInt(posX) + deltaX;
     let positionY = parseInt(posY) + deltaY;
 
-    let currentGeo = map[posX][posY];
-    let nextGeo = map[positionX][positionY];
+    let currentGeo = mapWithObjects[posX][posY];
+    let nextGeo = mapWithObjects[positionX][positionY];
 
     if (
             nextGeo !== 1

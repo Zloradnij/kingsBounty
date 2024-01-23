@@ -1,4 +1,4 @@
-# symfony_tournaments
+# kingsBounty
 git clone git@github.com:Zloradnij/kingsBounty.git \
 cd kingsBounty
 

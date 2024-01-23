@@ -25,13 +25,15 @@ let drawMap = function() {
                 rectY = i * heightCell;
                 rectX = j * widthCell;
 
+                /** Закрасим фон под объектами */
                 context.fillStyle = fillStyles[window.map[bigPositionX][bigPositionY]];
                 context.fillRect(rectX, rectY, rectX + heightCell, rectY + widthCell);
 
+                /** Центр */
                 if (i === 2 && j === 2) {
                     heroImage.src = objectImages.hero;
 
-                    if (parseInt(window.map[bigPositionX][bigPositionY]) === 2) {
+                    if (parseInt(window.mapWithObjects[bigPositionX][bigPositionY]) === 2) {
                         heroImage.src = objectImages.ship;
                     }
 
@@ -40,18 +42,10 @@ let drawMap = function() {
                     continue;
                 }
 
-                heroImage.src = fillImages[window.map[bigPositionX][bigPositionY]];
-
-                Object.keys(mapObjects).forEach(function (element) {
-                    element = mapObjects[element];
-
-                    if (parseInt(element.positionX) === bigPositionX && parseInt(element.positionY) === bigPositionY) {
-                        heroImage.src = fillImages[element.imageId];
-                    }
-                });
+                heroImage.src = fillImages[window.mapWithObjects[bigPositionX][bigPositionY]];
 
                 if (window.hero.ship.positionX === bigPositionX && window.hero.ship.positionY === bigPositionY) {
-                    heroImage.src = fillImages[101];
+                    heroImage.src = objectImages.ship;
                 }
 
                 context.drawImage(heroImage, rectX, rectY, heightCell, widthCell);

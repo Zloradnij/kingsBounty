@@ -18,22 +18,10 @@ let drawSmallMap = function() {
                 if (parseInt(window.hero.position.x) === i && parseInt(window.hero.position.y) === j) {
                     context.fillStyle = '#F00';
                 } else {
-                    context.fillStyle = fillStyles[window.map[i][j]];
-
-                    Object.keys(mapObjects).forEach(function (element) {
-                        element = mapObjects[element];
-
-                        if (parseInt(element.positionX) === i && parseInt(element.positionY) === j) {
-                            context.fillStyle = fillStyles[element.imageId];
-                        }
-                    });
+                    context.fillStyle = fillStyles[window.mapWithObjects[i][j]];
                 }
 
-                if (window.hero.ship.positionX === i && window.hero.ship.positionY === j) {
-                    context.fillStyle = '#FFF';
-                }
-
-                context.fillRect(rectX, rectY, rectX + 3, rectY + 3);
+                context.fillRect(rectX, rectY, rectX + 5, rectY + 5);
             }
         }
     }

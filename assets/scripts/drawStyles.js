@@ -13,7 +13,8 @@ const fillStyles = {
     19: '#F00',
     20: '#F00',
 
-    100: '/images/objects/hero.jpg',
+    hero: '#F00',
+    ship: '#FFF',
 };
 
 const fillImages = {

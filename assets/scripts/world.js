@@ -31,6 +31,12 @@ window.onload = function() {
 
     window.drawingCanvas = document.getElementById('kingsBounty');
 
+    if (!window.drawingCanvas || !window.drawingCanvas.getContext) {
+        alert('Ваш браузер не поддерживает ту штуку, на которой мы рисуем игру. Увы.');
+    }
+
+    window.gameContext = window.drawingCanvas.getContext('2d');
+
     setSize();
 
     /** TODO сделать туман войны */
@@ -38,7 +44,10 @@ window.onload = function() {
 
     /** Переносим объекты на карту */
     objectsToMap();
+
+    /** Управление хомяком */
     mouseActions();
+
     /** Стартовая героя и окрестностей */
     drawMap();
 

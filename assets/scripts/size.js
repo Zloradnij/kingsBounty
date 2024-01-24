@@ -4,33 +4,43 @@ let setSize = function() {
 
     const menuHeight = document.getElementById('top-menu').clientHeight;
 
-    window.canvasWidth = pageWidth;
-    window.canvasHeight = pageHeight - menuHeight;
+    window.topPanel = {};
+    window.topPanel.height = 20;
+    window.topPanel.width = 20;
 
-    window.drawingCanvas.height = pageHeight - menuHeight;
-    window.drawingCanvas.width = pageWidth;
 
-    if (window.drawingCanvas.width > window.drawingCanvas.height) {
-        window.drawingCanvas.width = window.drawingCanvas.height;
+    let gameFieldHeight = pageHeight - menuHeight;
+    let gameFieldWidth = pageWidth;
+
+    if (gameFieldWidth > gameFieldHeight) {
+        gameFieldWidth = gameFieldHeight;
+        window.topPanel.height = gameFieldHeight;
+
+        window.drawingCanvas.height = gameFieldHeight;
+        window.drawingCanvas.width = gameFieldHeight + window.topPanel.width;
     } else {
-        window.drawingCanvas.height = window.drawingCanvas.width;
+        gameFieldHeight = gameFieldWidth;
+        window.topPanel.width = gameFieldWidth;
+
+        window.drawingCanvas.height = gameFieldWidth + window.topPanel.height;
+        window.drawingCanvas.width = gameFieldWidth;
     }
 
-    window.heightCell = Math.floor(window.drawingCanvas.height / 5);
-    window.widthCell = Math.floor(window.drawingCanvas.width / 5);
+    window.heightCell = Math.floor(gameFieldHeight / 5);
+    window.widthCell = Math.floor(gameFieldWidth / 5);
 
-    window.heightMapCell = Math.floor(window.drawingCanvas.height / 100);
-    window.widthMapCell = Math.floor(window.drawingCanvas.width / 100);
+    window.heightMapCell = Math.floor(gameFieldHeight / 100);
+    window.widthMapCell = Math.floor(gameFieldWidth / 100);
 
-    console.log('pageHeight = ' + pageHeight);
-    console.log('menuHeight = ' + menuHeight);
+    console.log('gameFieldHeight = ' + gameFieldHeight);
+    console.log('gameFieldWidth = ' + gameFieldWidth);
 
-    console.log('window.heightCell = ' + window.heightCell);
-    console.log('window.widthCell = ' + window.widthCell);
-
-    console.log('window.heightMapCell = ' + window.heightMapCell);
-    console.log('window.widthMapCell = ' + window.widthMapCell);
-
+    console.log('window.topPanel.width = ' + window.topPanel.width);
+    console.log('window.topPanel.width sum = ' + (parseInt(gameFieldHeight) + window.topPanel.width));
+    //
+    // console.log('window.heightMapCell = ' + window.heightMapCell);
+    // console.log('window.widthMapCell = ' + window.widthMapCell);
+    //
     console.log('window.drawingCanvas.height = ' + window.drawingCanvas.height);
     console.log('window.drawingCanvas.width = ' + window.drawingCanvas.width);
 };

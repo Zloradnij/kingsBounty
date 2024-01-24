@@ -14,14 +14,16 @@ let positionMove = function(deltaX, deltaY) {
     let positionX = parseInt(posX) + deltaX;
     let positionY = parseInt(posY) + deltaY;
 
-    let currentGeo = mapWithObjects[posX][posY];
-    let nextGeo = mapWithObjects[positionX][positionY];
+    let currentGeo = window.mapWithObjects[posX][posY];
+    let nextGeo = window.mapWithObjects[positionX][positionY];
 
     if (
             nextGeo !== 1
          && nextGeo !== 2
          && nextGeo !== 5
+         && nextGeo !== 101
     ) {
+        /** TODO Сделать изменение ландшафта работниками */
         return;
     }
 
@@ -60,14 +62,19 @@ let draw = function(positionX, positionY) {
     window.hero.position.x = positionX;
     window.hero.position.y = positionY;
 
-    drawSmallMap();
     drawMap();
 };
 
 function actionKeyM() {
-    let mapBlock = document.getElementById('kingsBountyMap');
+    if (window.mapVisible) {
+        window.mapVisible = false;
+        drawMap();
 
-    mapBlock.classList.toggle("hidden");
+        return;
+    }
+
+    window.mapVisible = true;
+    drawSmallMap();
 }
 
 function actionNumpad8() {

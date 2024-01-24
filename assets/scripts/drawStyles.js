@@ -15,6 +15,8 @@ const fillStyles = {
 
     hero: '#F00',
     ship: '#FFF',
+
+    101: '#FFF',
 };
 
 const fillImages = {

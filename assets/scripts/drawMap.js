@@ -1,15 +1,6 @@
 let drawMap = function() {
     let heroImage = new Image();
 
-    let height = 500;
-    let width = 500;
-
-    window.drawingCanvas.height = height;
-    window.drawingCanvas.width = width;
-
-    let heightCell = Math.floor(500 / 5);
-    let widthCell = Math.floor(500 / 5);
-
     let rectX = 0;
     let rectY = 0;
 
@@ -24,12 +15,12 @@ let drawMap = function() {
                 let bigPositionX = window.hero.position.x - 2 + i;
                 let bigPositionY = window.hero.position.y - 2 + j;
 
-                rectY = i * heightCell;
-                rectX = j * widthCell;
+                rectY = i * window.heightCell;
+                rectX = j * window.widthCell;
 
                 /** Закрасим фон под объектами */
                 context.fillStyle = fillStyles[window.map[bigPositionX][bigPositionY]];
-                context.fillRect(rectX, rectY, rectX + heightCell, rectY + widthCell);
+                context.fillRect(rectX, rectY, rectX + window.heightCell, rectY + window.widthCell);
 
                 /** Центр */
                 if (i === 2 && j === 2) {
@@ -41,7 +32,7 @@ let drawMap = function() {
                         heroImage.src = objectImages.ship;
                     }
 
-                    context.drawImage(heroImage, rectX, rectY, heightCell, widthCell);
+                    context.drawImage(heroImage, rectX, rectY, window.heightCell, window.widthCell);
 
                     continue;
                 }
@@ -52,7 +43,7 @@ let drawMap = function() {
                     heroImage.src = objectImages.ship;
                 }
 
-                context.drawImage(heroImage, rectX, rectY, heightCell, widthCell);
+                context.drawImage(heroImage, rectX, rectY, window.heightCell, window.widthCell);
             }
         }
     }

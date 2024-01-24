@@ -19,6 +19,10 @@ let mouseActions = function() {
         } else if (y < window.drawingCanvas.height * 2 / 5) {
             deltaX = -1;
         }
+        // console.log('deltaX = ' + deltaX);
+        // console.log('deltaY = ' + deltaY);
+        // console.log('window.heightCell = ' + window.heightCell);
+        // console.log('window.widthCell = ' + window.widthCell);
 
         positionMove(deltaX, deltaY);
     }

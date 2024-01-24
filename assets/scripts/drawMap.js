@@ -13,6 +13,8 @@ let drawMap = function() {
     let rectX = 0;
     let rectY = 0;
 
+    let geo = 2;
+
     if (window.drawingCanvas && window.drawingCanvas.getContext) {
         let context = window.drawingCanvas.getContext('2d');
         context.strokeStyle = "#000";
@@ -33,7 +35,9 @@ let drawMap = function() {
                 if (i === 2 && j === 2) {
                     heroImage.src = objectImages.hero;
 
-                    if (parseInt(window.mapWithObjects[bigPositionX][bigPositionY]) === 2) {
+                    geo = parseInt(window.mapWithObjects[bigPositionX][bigPositionY]);
+
+                    if (geo === 2 || geo === 101) {
                         heroImage.src = objectImages.ship;
                     }
 

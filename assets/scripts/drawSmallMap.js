@@ -2,11 +2,11 @@ let drawSmallMap = function() {
     let rectX = 0;
     let rectY = 0;
 
-    if (window.drawingCanvasMap && window.drawingCanvasMap.getContext) {
-        window.drawingCanvasMap.height = 500;
-        window.drawingCanvasMap.width = 500;
+    if (window.drawingCanvas && window.drawingCanvas.getContext) {
+        // window.drawingCanvasMap.height = 500;
+        // window.drawingCanvasMap.width = 500;
 
-        let context = window.drawingCanvasMap.getContext('2d');
+        let context = window.drawingCanvas.getContext('2d');
 
         context.strokeStyle = "#000";
 

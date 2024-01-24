@@ -31,12 +31,14 @@ window.onload = function() {
 
     window.drawingCanvas = document.getElementById('kingsBounty');
 
+    setSize();
+
     /** TODO сделать туман войны */
     window.mistOfWar = JSON.parse(island.dataset.map);
 
     /** Переносим объекты на карту */
     objectsToMap();
-
+    mouseActions();
     /** Стартовая героя и окрестностей */
     drawMap();
 

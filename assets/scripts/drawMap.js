@@ -13,8 +13,8 @@ let drawMap = function() {
             let bigPositionX = window.hero.position.x - 2 + i;
             let bigPositionY = window.hero.position.y - 2 + j;
 
-            rectY = i * window.heightCell;
-            rectX = j * window.widthCell;
+            rectY = i * window.heightCell + window.mapStartY;
+            rectX = j * window.widthCell + window.mapStartX;
 
             /** Закрасим фон под объектами */
             window.gameContext.fillStyle = fillStyles[window.map[bigPositionX][bigPositionY]];
@@ -45,15 +45,5 @@ let drawMap = function() {
         }
     }
 
-    window.gameContext.fillStyle = '#000';
-    window.gameContext.fillRect(0, 0, window.topPanel.width, window.topPanel.height);
-
-    window.gameContext.font = "12px Comic Sans MS";
-    window.gameContext.fillStyle = "#999";
-
-    let text = '';
-    text += "x:y " + window.hero.position.x + ":" + window.hero.position.y;
-    text += " | " + "$ " + window.hero.gulden;
-    text += " | " + "mana: " + window.hero.mana;
-    window.gameContext.fillText(text, 10, 12);
+    drawPanel();
 };

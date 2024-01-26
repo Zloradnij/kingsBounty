@@ -56,3 +56,19 @@ const objectImages = {
     hero: '/images/objects/Hero.png',
     ship: '/images/objects/Ship.png',
 };
+
+const objectMap = {
+    1: 'Plain',
+    2: 'Water',
+    3: 'Forest',
+    4: 'Mountains',
+    5: 'Desert',
+    12: 'Desert',
+    13: 'City',
+    14: 'Rock',
+    15: 'Castle',
+    16: 'Knight',
+    18: 'Rock',
+    19: 'Rock',
+    20: 'Rock',
+};

@@ -17,13 +17,7 @@ let positionMove = function(deltaX, deltaY) {
     let currentGeo = window.mapWithObjects[posX][posY];
     let nextGeo = window.mapWithObjects[positionX][positionY];
 
-    if (
-            nextGeo !== 1
-         && nextGeo !== 2
-         && nextGeo !== 5
-         && nextGeo !== 101
-    ) {
-        /** TODO Сделать изменение ландшафта работниками */
+    if (!isSuccessMove(nextGeo)) {
         return;
     }
 
@@ -58,7 +52,31 @@ let positionMove = function(deltaX, deltaY) {
     draw(positionX, positionY);
 };
 
-let draw = function(positionX, positionY) {
+let isSuccessMove = function (nextGeo) {
+    if (
+           nextGeo === 1
+        || nextGeo === 2
+        || nextGeo === 5
+        || nextGeo === 101
+    ) {
+        return true;
+    }
+
+    if (
+           nextGeo === 3
+        || nextGeo === 4
+    ) {
+        /** TODO Сделать изменение ландшафта работниками */
+
+        return false;
+    }
+
+    objectActions(objectMap[nextGeo]);
+
+    return false;
+};
+
+let draw = function (positionX, positionY) {
     window.hero.position.x = positionX;
     window.hero.position.y = positionY;
 

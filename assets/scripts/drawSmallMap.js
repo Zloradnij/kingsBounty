@@ -6,8 +6,8 @@ let drawSmallMap = function() {
 
     for (let i = 0; i < 100; i++) {
         for (let j = 0; j < 100; j++) {
-            rectY = i * window.heightMapCell;
-            rectX = j * window.widthMapCell;
+            rectY = i * window.heightMapCell + window.mapStartY;
+            rectX = j * window.widthMapCell + window.mapStartX;
 
             if (parseInt(window.hero.position.x) === i && parseInt(window.hero.position.y) === j) {
                 window.gameContext.fillStyle = '#F00';
@@ -18,4 +18,6 @@ let drawSmallMap = function() {
             window.gameContext.fillRect(rectX, rectY, rectX + window.heightMapCell, rectY + window.widthMapCell);
         }
     }
+
+    drawPanel();
 };
